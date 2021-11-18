@@ -1,0 +1,43 @@
+.Form {
+    text-align: center;
+    width: 40em;
+    margin: 5em auto 0;
+}
+
+.Form h1 {
+    margin-bottom: 0;
+}
+
+.Form .Submit {
+    margin-top: 0.3em;
+    padding: 0.6em;
+    border-radius: 1em;
+    font-size: 1.2em;
+    border: solid 2px var(--black-color);
+}
+
+.Form .Fields {
+    display: inline-block;
+}
+
+
+.Form .InputField {
+    margin: 1em;
+    display: block;
+}
+
+.Form .InputField .Label {
+    font-size: 1.3em;
+    text-align: left;
+    margin-bottom: 0.7em;
+    display: block;
+}
+
+.Form .InputField .Input {
+    font-size: 1.3em;
+    display: block;
+    border-radius: 0.5em;
+    height: 1.5em;
+    padding: 0.3em;
+    border-color: var(--black-color);
+}

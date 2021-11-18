@@ -1,0 +1,29 @@
+.CoursePage {
+    display: flex;
+    align-items: stretch;
+}
+
+.CoursePage .LessonsBar h2 {
+    margin: 0;
+}
+
+.CoursePage .LessonsBar {
+    min-height: 100vh;
+    min-width: 18em;
+    width: 18em;
+    padding-top: 2em;
+    text-align: center;
+    color: var(--nav-font-color);
+    background-color: var(--black-color);
+}
+
+.CoursePage .Content {
+    flex-grow: 1;
+}
+
+.CoursePage .Content .Greeting {
+    text-align: center;
+    width: 60em;
+    margin: 5em auto 0;
+    overflow-wrap: anywhere;
+}
