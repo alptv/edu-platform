@@ -1,0 +1,12 @@
+{
+  "fixturesFolder": "src/test/e2e/fixtures",
+  "integrationFolder": "src/test/e2e/spec",
+  "screenshotsFolder": "src/test/e2e/screenshots",
+  "videosFolder": "src/test/e2e/videos",
+  "downloadsFolder": "src/test/e2e/downloads",
+  "screenshotOnRunFailure": false,
+  "supportFile": false,
+  "video": false,
+  "pluginsFile": false,
+  "port": 4001
+}

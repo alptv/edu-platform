@@ -1,0 +1,15 @@
+.Main {
+    width: 50em ;
+    margin: 5em auto 0;
+}
+
+.Main h1 {
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+.Main p {
+    line-height: 1.5;
+    font-size: 1.3em;
+    text-align: left;
+}

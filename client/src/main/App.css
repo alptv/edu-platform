@@ -1,0 +1,17 @@
+.App {
+    margin: 0;
+    padding: 0;
+    --hover-link-color: #4169e1;
+    --black-color: #333;
+    --block-separator-color: #e8e8e8;
+    --nav-font-color: white;
+}
+
+.App .NavigationLink {
+    color: var(--nav-font-color);
+    text-decoration: none;
+}
+
+.App .NavigationLink:hover {
+    color: var(--hover-link-color);
+}

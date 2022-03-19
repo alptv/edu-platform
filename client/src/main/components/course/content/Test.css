@@ -1,0 +1,46 @@
+.Test {
+    width: 50em;
+    margin: 0 auto;
+}
+
+.Test .List {
+    list-style-position: inside;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.Test > .TestForm > .List > .ListItem {
+    border-bottom: solid 2px;
+}
+
+.Test > .TestForm > .List > .ListItem:last-child {
+    border-bottom: none;
+}
+
+.Task {
+    text-align: left;
+    margin: 1em;
+    overflow-wrap: anywhere;
+}
+
+.Task .List {
+    margin: 0.5em;
+    list-style-type: numeric;
+}
+
+.Task .List .Answer {
+    margin: 0.5em;
+    display: inline-block;
+}
+
+.Task .List .Answer span {
+    margin: 0.25em;
+}
+
+.Test .TestForm .Submit {
+    margin: 1em;
+    padding: 0.3em;
+    font-size: 1em;
+    border-radius: 1em;
+    border: solid 1px var(--black-color);
+}
