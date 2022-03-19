@@ -1,0 +1,6 @@
+com.github.dockerjava.api.exception.InternalServerErrorException: Status 500:
+{"message":
+"error creating aufs mount to /var/lib/docker/aufs/mnt/c6ffdfea9591e7ea9815d0ac2aaebbbbb0e479c78b7e230f01f95f3527f420b5-init:
+mount target=/var/lib/docker/aufs/mnt/c6ffdfea9591e7ea9815d0ac2aaebbbbb0e479c78b7e230f01f95f3527f420b5-init
+data=br:/var/lib/docker/aufs/diff/c6ffdfea9591e7ea9815d0ac2aaebbbbb0e479c78b7e230f01f95f3527f420b5-init=rw:/var/lib/docker/aufs/diff/1ce75d796a307916a2fe4cadc8b3b85916decdf2a28cb8c3810c7a3656a8bd8b=ro+wh:
+/var/lib/docker/aufs/diff/b56178423d64dd8b60396819d08ed5e20ee7c8b494dcc04e0153fedf40035abf=ro+wh:/var/lib/docker/aufs/diff/88e1bd9772f32eb3c7f94ab7332b9d1d26cab6eb9b3a561d2fef3b31c9bf580a=ro+wh,dio,xino=/dev/shm/aufs.xino: invalid argument"}
