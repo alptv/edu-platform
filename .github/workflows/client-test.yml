@@ -32,7 +32,7 @@ jobs:
         run: docker-compose up -d
         
       - name: Run e2e test
-        run: yarn test:e2e
+        run: HOST=http://localhost:7001 yarn test:e2e
         working-directory: ./client
         
       - name: Stop containers
