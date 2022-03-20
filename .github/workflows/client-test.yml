@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  install:
+  build:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -16,8 +16,7 @@ jobs:
         uses: actions/setup-node@v3.0.0
         with:
           node-version: '15.0.1'
-          cache: 'yarn'
-          
+               
       - name: Install dependencies
         run: yarn install
         working-directory: ./client
