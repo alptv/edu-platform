@@ -1,0 +1,22 @@
+name: Server test
+
+on: 
+  push:
+    branches:
+      - '**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.0.0
+        with:
+          java-version: '11'
+          
+      - name: Build and test
+        run: ./gradlew build
+        working-directory: ./server
