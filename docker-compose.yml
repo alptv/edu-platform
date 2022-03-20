@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  database:
+    restart: always
+    build: ./database
+    image: edu-platform_database:latest
+    environment:
+      POSTGRES_DB: "edu"
+      POSTGRES_USER: "server"
+      POSTGRES_PASSWORD: "secret"
+    network_mode: bridge
+    ports:
+      - "5001:5432"
+  server:
+    build: ./server
+    image: edu-platform_server:latest
+    environment:
+      PORT: 6001
+      DATABASE_URL: "jdbc:postgresql://0.0.0.0:5001/edu"
+      DATABASE_USERNAME: "server"
+      DATABASE_PASSWORD: "secret"
+      ALLOWED_ORIGINS: "http://localhost:7001"
+    network_mode: host
+    depends_on:
+      - database
+
+  client:
+    build: ./client
+    image: edu-platform_client:latest
+    environment:
+      PORT: 7001
+      SERVER_URL: "http://localhost:6001"
+    network_mode: host
+    depends_on:
+      - server
+    

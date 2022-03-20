@@ -1,12 +1,14 @@
-package edu.platform.controller
+package util.controller
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import edu.platform.model.User
 import edu.platform.security.UserManager
 import org.springframework.mock.web.MockHttpSession
+import org.springframework.test.context.web.WebAppConfiguration
 import org.springframework.test.web.servlet.*
 import org.springframework.test.web.servlet.result.ContentResultMatchersDsl
 
+@WebAppConfiguration
 open class ControllerTest {
     private val objectMapper = jacksonObjectMapper()
     private val defaultOrigin = "http://localhost:3000"
