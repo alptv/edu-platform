@@ -1,15 +1,11 @@
 import {RestClient} from "../util/RestClient";
 import {ServiceImpl, Service} from "./Service";
 
-function getEnvVariableSafe(envVariableName : string) : string {
+function getEnvVariableOrDefault(envVariableName: string, defaultVariableName: string): string {
     const envVariable = process.env[envVariableName]
-    if (envVariable) {
-        return envVariable
-    } else {
-        throw new Error(`Missing environment variable: ${envVariableName}`)
-    }
+    return envVariable ?? defaultVariableName
 }
 
-const API_URL: string = getEnvVariableSafe("REACT_APP_SERVER_URL")
+const API_URL: string = getEnvVariableOrDefault("REACT_APP_SERVER_URL", "http://localhost:7001")
 const serviceRestClient: RestClient = new RestClient(API_URL)
 export const service: Service = new ServiceImpl(serviceRestClient)
