@@ -26,10 +26,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test":"test:unit && test:e2e",
     "test:unit": "react-scripts test ----testPathPattern=src/test/unit",
-    "test:e2e": "yarn run cypress run",
-    "open:e2e": "yarn run cypress open",
+    "test:e2e": "yarn run cypress run --env host=$HOST",
+    "open:e2e": "yarn run cypress open --env host=$HOST",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = Cypress.env("host")
 
 export function url(resource?: string) {
     const pathSeparator = resource?.startsWith("/") ? "" : "/"
