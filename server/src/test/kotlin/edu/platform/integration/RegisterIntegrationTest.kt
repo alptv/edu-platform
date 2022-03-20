@@ -5,6 +5,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
+import util.integration.IntegrationTest
 
 class RegisterIntegrationTest : IntegrationTest() {
 

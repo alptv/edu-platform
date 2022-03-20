@@ -1,6 +1,6 @@
 import {render} from "@testing-library/react"
 import {ReactElement} from "react"
-import {BrowserRouter, Route, Routes} from "react-router-dom"
+import {BrowserRouter, Routes} from "react-router-dom"
 
 export type Render = () => HTMLElement
 

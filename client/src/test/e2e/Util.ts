@@ -1,8 +1,4 @@
-import {Service, ServiceImpl} from "../../main/services/Service";
-import {RestClient} from "../../main/util/RestClient";
-
 const BASE_URL = "http://localhost:3000"
-const e2eService: Service = new ServiceImpl(new RestClient("http://localhost:8080"))
 
 export function url(resource?: string) {
     const pathSeparator = resource?.startsWith("/") ? "" : "/"

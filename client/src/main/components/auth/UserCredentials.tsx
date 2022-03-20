@@ -4,7 +4,6 @@ import {Form, InputField} from "../generic/Form";
 import {fromBoolean, Popup, PopupType} from "../generic/Popup";
 import {User} from "../../services/Data";
 import {Setter} from "../../util/Util";
-import {deserialize, serialize} from 'class-transformer'
 
 
 export const UserCredentials = (props: {

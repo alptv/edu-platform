@@ -1,4 +1,4 @@
-package edu.platform.integration
+package util.integration
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import edu.platform.service.Sha256Encoder
@@ -13,11 +13,12 @@ import org.springframework.http.HttpMethod.POST
 import org.springframework.http.ResponseEntity
 import org.springframework.http.client.ClientHttpResponse
 import org.springframework.web.client.ResponseErrorHandler
+import util.Properties
 import util.database.DataBaseTest
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class IntegrationTest : DataBaseTest() {
-    private val defaultOrigin = "http://localhost:3000"
+    private val defaultOrigin = Properties.ALLOWED_ORIGIN
     private val objectMapper = jacksonObjectMapper()
     private val restTemplate = RestTemplateBuilder().build().apply {
         errorHandler = object : ResponseErrorHandler {

@@ -9,15 +9,11 @@ import javax.sql.DataSource
 
 
 @Configuration
-class DatabaseJdbcConfiguration : AbstractJdbcConfiguration() {
-    @Value("\${database.url}")
-    private lateinit var url: String
-
-    @Value("\${database.username}")
-    private lateinit var username: String
-
-    @Value("\${database.password}")
-    private lateinit var password: String
+class DatabaseJdbcConfiguration(
+    @Value("\${database.url}") private val url: String,
+    @Value("\${database.username}") private val username: String,
+    @Value("\${database.password}") private val password: String,
+) : AbstractJdbcConfiguration() {
 
     @Bean
     fun dataSource(): DataSource {
