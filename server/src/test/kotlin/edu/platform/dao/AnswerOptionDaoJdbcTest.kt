@@ -1,19 +1,25 @@
 package edu.platform.dao
 
 import edu.platform.model.AnswerOption
+import io.qameta.allure.Description
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.DisplayName
+import io.qameta.allure.Epic
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import util.database.Connection.executeUpdate
 import util.database.DataBaseTest
 
+@DisplayName("Answer option data access test")
+@Epic("Data layer test")
 class AnswerOptionDaoJdbcTest : DataBaseTest() {
 
     @Autowired
     private lateinit var answerOptionDao: AnswerOptionDao
 
-
     @Test
+    @DisplayName("Finding answer option for question")
+    @Description("Method findAnswerOptionsForQuestion should extract all answer options from database which given question has")
     fun `findAnswerOptionsForQuestion should return all answer options for given question`() {
         database.inTransaction {
             executeUpdate("set constraints correct_answer_fk deferred")

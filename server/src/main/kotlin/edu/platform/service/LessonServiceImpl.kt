@@ -13,11 +13,9 @@ class LessonServiceImpl(
     }
 
     override fun verifyAnswers(lessonId: Long, answers: List<Long>): Boolean {
-        val questions = questionDao.findQuestionsForLesson(lessonId)
-        return questions
-            .withIndex()
-            .all { questionWithIndex ->
-                answers[questionWithIndex.index] == questionWithIndex.value.correct_answer_option_id
-            }
+        val correctAnswers =
+            questionDao.findQuestionsForLesson(lessonId).map { question -> question.correct_answer_option_id }
+
+        return answers == correctAnswers
     }
 }

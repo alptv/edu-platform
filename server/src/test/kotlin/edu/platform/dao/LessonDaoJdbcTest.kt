@@ -1,14 +1,19 @@
 package edu.platform.dao
 
 import edu.platform.model.Lesson
+import io.qameta.allure.Description
 import org.assertj.core.api.Assertions
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import io.qameta.allure.Epic
 import org.springframework.beans.factory.annotation.Autowired
 import util.database.DataBaseTest
 
+@DisplayName("Lesson data access test")
+@Epic("Data layer test")
 class LessonDaoJdbcTest : DataBaseTest() {
 
     @Autowired
@@ -35,6 +40,8 @@ class LessonDaoJdbcTest : DataBaseTest() {
     }
 
     @Test
+    @DisplayName("Finding existing lesson by id")
+    @Description("Method findLessonById should extract lesson with given id from database")
     fun `findLessonById should return lesson with given id if exists`() {
         val lesson = lessonDao.findLessonById(1)
         assertThat(lesson).isEqualTo(
@@ -43,12 +50,16 @@ class LessonDaoJdbcTest : DataBaseTest() {
     }
 
     @Test
+    @DisplayName("Finding non existing lesson by id")
+    @Description("Method findCourseById should return null if lesson with given id does not exist")
     fun `findLessonById should return null if lesson with given id does not exist`() {
         val course = lessonDao.findLessonById(100)
         assertThat(course).isNull()
     }
 
     @Test
+    @DisplayName("Finding lessons for course")
+    @Description("Method findLessonsForCourse should extract lessons from database sorted by number which given course has")
     fun `findLessonsForCourse should return all lessons for given course sorted by number`() {
         val lessons = lessonDao.findLessonsForCourse(1)
         assertThat(lessons).isEqualTo(

@@ -7,17 +7,23 @@ import org.mockito.kotlin.whenever
 import edu.platform.dao.UserDao
 import edu.platform.controller.dto.UserCredentials
 import edu.platform.model.User
+import io.qameta.allure.Description
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
+import org.junit.jupiter.api.DisplayName
+import io.qameta.allure.Epic
 import org.junit.jupiter.api.Test
 
 
-
+@DisplayName("User service test")
+@Epic("Service test")
 class UserServiceImplTest {
     private val userDao = mock<UserDao>()
     private val userService = UserServiceImpl(userDao)
 
     @Test
+    @DisplayName("Checking correct user credentials")
+    @Description("Method checkUserCredentials should return true if user exists in data layer")
     fun `checkUserCredentials should return true if user exists and password is correct`() {
         val passwordHash = Sha256Encoder.encode("password")
         val user = User(1, "login", passwordHash)
@@ -30,6 +36,8 @@ class UserServiceImplTest {
     }
 
     @Test
+    @DisplayName("Checking non existing login from user credentials")
+    @Description("Method checkUserCredentials should return true if user does not exist in data layer")
     fun `checkUserCredentials should return false if user not exists`() {
         whenever(userDao.findUserByLogin(any())).thenReturn(null)
 
@@ -39,7 +47,9 @@ class UserServiceImplTest {
     }
 
     @Test
-    fun `checkUserCredentials should return true if password is incorrect`() {
+    @DisplayName("Checking incorrect password from user credentials")
+    @Description("Method checkUserCredentials should return false if password does not match")
+    fun `checkUserCredentials should return false if password is incorrect`() {
         val passwordHash = Sha256Encoder.encode("password")
         val user = User(1, "login", passwordHash)
 
@@ -52,6 +62,8 @@ class UserServiceImplTest {
 
 
     @Test
+    @DisplayName("Checking incorrect password from user credentials")
+    @Description("Method checkUserCredentials should return false if password does not match")
     fun `hasUserWithLogin should return true if user exists`() {
         val passwordHash = Sha256Encoder.encode("password")
         val user = User(1, "login", passwordHash)
@@ -63,6 +75,8 @@ class UserServiceImplTest {
     }
 
     @Test
+    @DisplayName("Successful finding user by login")
+    @Description("Method loadUserByLogin should return user if data layer contains user with given login")
     fun `loadUserByLogin should return user with given login if user exists`() {
         val user = User(1, "login", "password")
 
@@ -73,6 +87,8 @@ class UserServiceImplTest {
     }
 
     @Test
+    @DisplayName("Unsuccessful finding user by login")
+    @Description("Method loadUserByLogin should throw exception if data layer does not contain user with given login")
     fun `loadUserByLogin should throw exception if user does not exist`() {
         whenever(userDao.findUserByLogin("login")).thenReturn(null)
 
@@ -84,6 +100,8 @@ class UserServiceImplTest {
 
 
     @Test
+    @DisplayName("Saving user with given credentials")
+    @Description("Method saveUser should insert user with given credentials in data layer")
     fun `saveUser should save user with given login and hashed password`() {
         val passwordHash = Sha256Encoder.encode("password")
         val user = User(1, "login", passwordHash)

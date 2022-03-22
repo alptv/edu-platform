@@ -2,6 +2,9 @@ package edu.platform.controller
 
 import edu.platform.model.Course
 import edu.platform.service.CourseService
+import io.qameta.allure.Description
+import org.junit.jupiter.api.DisplayName
+import io.qameta.allure.Epic
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
@@ -15,6 +18,8 @@ import org.springframework.test.web.servlet.MockMvc
 import util.controller.ControllerTest
 
 @WebMvcTest(CourseController::class)
+@DisplayName("Course controller test")
+@Epic("Controller test")
 class CourseControllerTest : ControllerTest() {
 
     @MockBean
@@ -24,15 +29,27 @@ class CourseControllerTest : ControllerTest() {
     private lateinit var mockMvc: MockMvc
 
 
-    @ParameterizedTest
-    @ValueSource(strings = ["/course/all", "/course/1"])
-    fun `should return UNAUTHORIZED for private methods if user not logged in`(path: String) {
-        mockMvc.httpGet(path).andExpect {
+    @Test
+    @DisplayName("Unauthorized getting all courses")
+    @Description("GET on /course/all should return UNAUTHORIZED status code for unauthorized user")
+    fun `get all courses should return UNAUTHORIZED if user not logged in`() {
+        mockMvc.httpGet("/course/all").andExpect {
             status { isUnauthorized() }
         }
     }
 
     @Test
+    @DisplayName("Unauthorized getting course by id")
+    @Description("GET on /course/{courseId} should return UNAUTHORIZED status code for unauthorized user")
+    fun `get course by id should return UNAUTHORIZED for if user not logged in`() {
+        mockMvc.httpGet("/course/1").andExpect {
+            status { isUnauthorized() }
+        }
+    }
+
+    @Test
+    @DisplayName("Successful getting all courses")
+    @Description("GET on /course/all should return OK status code with courses json list")
     fun `get all courses should return OK with json list containing all courses`() {
         val courses = listOf(
             Course(1, "First course", "First description"),
@@ -51,6 +68,8 @@ class CourseControllerTest : ControllerTest() {
     }
 
     @Test
+    @DisplayName("Successful getting course by id")
+    @Description("GET on /course/{courseId} should return OK status code course json")
     fun `get course by id should return OK with course that was found by given id`() {
         val course = Course(1, "Course", "Description")
 
@@ -70,6 +89,8 @@ class CourseControllerTest : ControllerTest() {
     }
 
     @Test
+    @DisplayName("Unsuccessful getting course by id")
+    @Description("GET on /course/{courseId} should return NOT_FOUND if course with given id not exists")
     fun `get course by id should return NOT_FOUND if course with given id not exist`() {
         whenever(courseService.hasCourseWithId(any())).thenReturn(false)
 

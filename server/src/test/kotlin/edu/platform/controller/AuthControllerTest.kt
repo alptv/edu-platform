@@ -4,7 +4,10 @@ import edu.platform.controller.dto.UserCredentials
 import edu.platform.model.User
 import edu.platform.security.UserManager
 import edu.platform.service.UserService
+import io.qameta.allure.Description
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.DisplayName
+import io.qameta.allure.Epic
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.any
 import org.mockito.kotlin.verify
@@ -17,6 +20,8 @@ import org.springframework.test.web.servlet.MockMvc
 import util.controller.ControllerTest
 
 @WebMvcTest(AuthController::class)
+@DisplayName("Authentication controller test")
+@Epic("Controller test")
 class AuthControllerTest : ControllerTest() {
     private val userCredentials = UserCredentials("login", "password")
     private val user = User(1, "login", "password_hash")
@@ -28,6 +33,8 @@ class AuthControllerTest : ControllerTest() {
     private lateinit var mockMvc: MockMvc
 
     @Test
+    @DisplayName("Successful login")
+    @Description("POST on /auth/login with correct user credentials should return OK status code")
     fun `login should return OK if user with this credentials exists and not already logged in`() {
         whenever(userService.checkUserCredentials(any())).thenReturn(true)
         whenever(userService.loadUserByLogin(any())).thenReturn(user)
@@ -47,6 +54,8 @@ class AuthControllerTest : ControllerTest() {
     }
 
     @Test
+    @DisplayName("Login with incorrect credentials")
+    @Description("POST on /auth/login with incorrect user credentials should return BAD_REQUEST status code")
     fun `login should return BAD_REQUEST if credentials are incorrect`() {
         whenever(userService.checkUserCredentials(any())).thenReturn(false)
 
@@ -63,6 +72,8 @@ class AuthControllerTest : ControllerTest() {
     }
 
     @Test
+    @DisplayName("Login if already logged in")
+    @Description("POST on /auth/login with user credentials should return BAD_REQUEST status code if user logged in")
     fun `login should return BAD_REQUEST if user is already logged in`() {
         whenever(userService.checkUserCredentials(any())).thenReturn(false)
 
@@ -75,6 +86,8 @@ class AuthControllerTest : ControllerTest() {
     }
 
     @Test
+    @DisplayName("Successful registration")
+    @Description("POST on /auth/register with user credentials should return OK status code if user with given login not exists")
     fun `register should return OK if user with this credentials not exists`() {
         whenever(userService.hasUserWithLogin(any())).thenReturn(false)
         whenever(userService.saveUser(any())).thenReturn(user)
@@ -94,6 +107,8 @@ class AuthControllerTest : ControllerTest() {
     }
 
     @Test
+    @DisplayName("Registration with an existing login")
+    @Description("POST on /auth/register with user credentials should return BAD_REQUEST status code if user with given login exists")
     fun `register should return BAD_REQUEST if user with this credentials already exists`() {
         whenever(userService.hasUserWithLogin(any())).thenReturn(true)
 
@@ -109,6 +124,8 @@ class AuthControllerTest : ControllerTest() {
     }
 
     @Test
+    @DisplayName("Successful logout")
+    @Description("GET on /auth/logout should return OK status code if user is authorized")
     fun `logout should return OK if user was logged in`() {
         val mockSession = MockHttpSession()
         mockMvc.httpGet("/auth/logout") {
@@ -122,6 +139,8 @@ class AuthControllerTest : ControllerTest() {
 
 
     @Test
+    @DisplayName("Logout if user is unauthorized")
+    @Description("GET on /auth/logout should return UNAUTHORIZED status code if user is unauthorized")
     fun `logout should return UNAUTHORIZED if user was not logged in`() {
         mockMvc.httpGet("/auth/logout").andExpect {
             status { isUnauthorized() }

@@ -1,15 +1,22 @@
 package edu.platform.integration
 
 import edu.platform.controller.dto.UserCredentials
+import io.qameta.allure.Description
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.DisplayName
+import io.qameta.allure.Epic
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus.*
 import util.integration.IntegrationTest
 
+@DisplayName("Login integration test")
+@Epic("Integration test")
 class LoginIntegrationTest : IntegrationTest() {
 
     @Test
+    @DisplayName("User successful integration with login interface")
+    @Description("User can login in, then use content which requires authorization and then logout")
     fun `user can login if, use private content and logout`() {
         val userInsert = "insert into Users (user_login , user_password_hash) values (?, ?)"
         val passwordHash = passwordHash("password")
@@ -37,6 +44,8 @@ class LoginIntegrationTest : IntegrationTest() {
 
 
     @Test
+    @DisplayName("User unsuccessful integration with login interface")
+    @Description("User can not login with incorrect credentials and then can not use content which requires authorization")
     fun `user cannot login if user credentials are wrong and cannot use private content`() {
 
         val loginResponse = post("/auth/login", UserCredentials("login", "password"))

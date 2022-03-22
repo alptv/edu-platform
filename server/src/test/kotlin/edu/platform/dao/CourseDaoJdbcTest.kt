@@ -1,12 +1,17 @@
 package edu.platform.dao
 
 import edu.platform.model.Course
+import io.qameta.allure.Description
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import io.qameta.allure.Epic
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import util.database.DataBaseTest
 
+@DisplayName("Course data access test")
+@Epic("Data layer test")
 class CourseDaoJdbcTest : DataBaseTest() {
 
     @Autowired
@@ -21,6 +26,8 @@ class CourseDaoJdbcTest : DataBaseTest() {
     }
 
     @Test
+    @DisplayName("Finding all answer options for question")
+    @Description("Method findAllCourses should extract all courses from database")
     fun `findAllCourses should return all courses from database`() {
         val courses = courseDao.findAllCourses()
 
@@ -35,6 +42,8 @@ class CourseDaoJdbcTest : DataBaseTest() {
 
 
     @Test
+    @DisplayName("Finding existing course by id")
+    @Description("Method findCourseById should extract course with given id from database")
     fun `findCourseById should return course with given id if exists`() {
         val course = courseDao.findCourseById(1)
         assertThat(course).isEqualTo(
@@ -43,6 +52,8 @@ class CourseDaoJdbcTest : DataBaseTest() {
     }
 
     @Test
+    @DisplayName("Finding non existing course by id")
+    @Description("Method findCourseById should return null if course with given id does not exist")
     fun `findCourseById should return null if course with given id does not exist`() {
         val course = courseDao.findCourseById(5)
         assertThat(course).isNull()

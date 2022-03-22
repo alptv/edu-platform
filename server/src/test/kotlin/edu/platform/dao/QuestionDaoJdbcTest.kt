@@ -1,19 +1,26 @@
 package edu.platform.dao
 
 import edu.platform.model.Question
+import io.qameta.allure.Description
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.DisplayName
+import io.qameta.allure.Epic
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import util.database.Connection.executeUpdate
 
 import util.database.DataBaseTest
 
+@DisplayName("Question data access test")
+@Epic("Data layer test")
 class QuestionDaoJdbcTest : DataBaseTest() {
 
     @Autowired
     private lateinit var questionDao: QuestionDao
 
     @Test
+    @DisplayName("Finding questions for lesson")
+    @Description("Method findQuestionsForLesson should extract questions from database sorted by number which given lesson has")
     fun `findQuestionsForLesson should return all questions for given lesson sorted by number`() {
         database.inTransaction {
             executeUpdate("set constraints correct_answer_fk deferred")

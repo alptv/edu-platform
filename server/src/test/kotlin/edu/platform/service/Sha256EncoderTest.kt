@@ -1,11 +1,13 @@
 package edu.platform.service
 
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.DisplayName
+import io.qameta.allure.Epic
 import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
-
-internal class Sha256EncoderTest {
+@DisplayName("Sha256 encoder test")
+@Epic("Security test")
+class Sha256EncoderTest {
 
     @Test
     fun `encode should return sha256 hash of string`() {
