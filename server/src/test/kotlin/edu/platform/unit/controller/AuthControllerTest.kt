@@ -1,5 +1,6 @@
-package edu.platform.controller
+package edu.platform.unit.controller
 
+import edu.platform.controller.AuthController
 import edu.platform.controller.dto.UserCredentials
 import edu.platform.model.User
 import edu.platform.security.UserManager

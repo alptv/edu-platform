@@ -1,5 +1,6 @@
-package edu.platform.dao
+package edu.platform.unit.dao
 
+import edu.platform.dao.UserDao
 import io.qameta.allure.Description
 import io.qameta.allure.Epic
 import org.assertj.core.api.Assertions.assertThat

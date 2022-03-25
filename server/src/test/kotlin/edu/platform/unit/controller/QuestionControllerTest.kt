@@ -1,5 +1,6 @@
-package edu.platform.controller
+package edu.platform.unit.controller
 
+import edu.platform.controller.QuestionController
 import edu.platform.model.Question
 import edu.platform.service.QuestionService
 import io.qameta.allure.Description

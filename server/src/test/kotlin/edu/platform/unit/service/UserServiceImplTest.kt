@@ -1,4 +1,4 @@
-package edu.platform.service
+package edu.platform.unit.service
 
 import org.mockito.kotlin.any
 import org.mockito.kotlin.mock
@@ -7,6 +7,8 @@ import org.mockito.kotlin.whenever
 import edu.platform.dao.UserDao
 import edu.platform.controller.dto.UserCredentials
 import edu.platform.model.User
+import edu.platform.service.Sha256Encoder
+import edu.platform.service.UserServiceImpl
 import io.qameta.allure.Description
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy

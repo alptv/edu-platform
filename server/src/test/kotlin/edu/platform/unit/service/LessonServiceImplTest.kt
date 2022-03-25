@@ -1,4 +1,4 @@
-package edu.platform.service
+package edu.platform.unit.service
 
 import org.mockito.kotlin.any
 import org.mockito.kotlin.mock
@@ -8,6 +8,7 @@ import edu.platform.dao.LessonDao
 import edu.platform.dao.QuestionDao
 import edu.platform.model.Lesson
 import edu.platform.model.Question
+import edu.platform.service.LessonServiceImpl
 import io.qameta.allure.Description
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName

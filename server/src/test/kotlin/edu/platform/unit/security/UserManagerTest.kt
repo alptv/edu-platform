@@ -1,12 +1,12 @@
-package edu.platform.security
+package edu.platform.unit.security
 
 import edu.platform.model.User
+import edu.platform.security.UserManager
 import io.qameta.allure.Description
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import io.qameta.allure.Epic

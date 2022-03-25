@@ -1,4 +1,4 @@
-package edu.platform.service
+package edu.platform.unit.service
 
 import org.mockito.kotlin.any
 import org.mockito.kotlin.mock
@@ -6,6 +6,7 @@ import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 import edu.platform.dao.CourseDao
 import edu.platform.model.Course
+import edu.platform.service.CourseServiceImpl
 import io.qameta.allure.Description
 import io.qameta.allure.Epic
 import org.assertj.core.api.Assertions.assertThat
