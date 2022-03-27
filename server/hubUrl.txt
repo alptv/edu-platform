@@ -1,0 +1,3 @@
+//        "selenide.driverManagerEnabled" to "false",
+//        "selenide.remote" to "http://localhost:4444/wd/hub"
+//./gradlew e2eTest -Dselenide.host=172.17.0.1 -Dselenide.remote=http://localhost:4444/wd/hub

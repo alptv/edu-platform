@@ -1,0 +1,1 @@
+{"uuid":"1e47f88e-e108-4868-b0d5-d74649a10342","name":"Successful logged user check after unsetting","children":["c4d39ee5-ef65-496b-bd22-1f81fa5f3876"],"befores":[{"name":"setUp","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648382075668,"stop":1648382075668}],"afters":[],"links":[],"start":1648382075666,"stop":1648382075668}

@@ -1,0 +1,1 @@
+{"uuid":"de5319df-3066-40c0-a023-4c774d7683df","name":"Successful logged user check","children":["a9707300-d6cf-46c2-a8bc-613a517eba06"],"befores":[{"name":"setUp","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648382075676,"stop":1648382075676}],"afters":[],"links":[],"start":1648382075675,"stop":1648382075677}

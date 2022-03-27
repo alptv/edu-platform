@@ -1,0 +1,1 @@
+{"uuid":"951f58e8-4f56-4272-9926-e4ea4e55fc94","name":"User unsuccessful integration with login interface","children":["ef68cab2-20e5-4cf1-9d32-14a6d2a7cefa"],"befores":[],"afters":[{"name":"clear","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648382615201,"stop":1648382615350}],"links":[],"start":1648382615145,"stop":1648382615357}

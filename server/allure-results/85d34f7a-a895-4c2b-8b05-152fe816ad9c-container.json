@@ -1,0 +1,1 @@
+{"uuid":"85d34f7a-a895-4c2b-8b05-152fe816ad9c","name":"Successful extracting user from session","children":["c61c91cc-18a0-4429-a5a7-ba8fd350f8ed"],"befores":[{"name":"setUp","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648382075665,"stop":1648382075665}],"afters":[],"links":[],"start":1648382075663,"stop":1648382075665}

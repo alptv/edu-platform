@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Login E2E test" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-27T16:10:25" hostname="alexander-UX310UAR" time="1.732">
+  <properties/>
+  <testcase name="User interaction with authorization" classname="edu.platform.e2e.LoginEndToEndTest" time="1.732"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

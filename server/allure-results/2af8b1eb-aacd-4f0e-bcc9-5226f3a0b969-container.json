@@ -1,0 +1,1 @@
+{"uuid":"2af8b1eb-aacd-4f0e-bcc9-5226f3a0b969","name":"try existing login, then successful registering()","children":["2f666489-de0b-4266-bd62-5ca98659d100"],"befores":[],"afters":[{"name":"logout","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648380398952,"stop":1648380399044}],"links":[],"start":1648380397853,"stop":1648380399045}
