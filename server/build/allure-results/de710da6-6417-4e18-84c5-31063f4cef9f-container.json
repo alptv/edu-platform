@@ -1,1 +1,0 @@
-{"uuid":"de710da6-6417-4e18-84c5-31063f4cef9f","name":"User interaction with authorization","children":["6f690872-3c44-44d7-bf30-4ec157ab8111"],"befores":[],"afters":[{"name":"logout","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648397427311,"stop":1648397427489}],"links":[],"start":1648397425757,"stop":1648397427492}

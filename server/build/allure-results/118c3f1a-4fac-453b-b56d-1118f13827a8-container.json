@@ -1,1 +1,0 @@
-{"uuid":"118c3f1a-4fac-453b-b56d-1118f13827a8","name":"User solves test","children":["328a43bf-0ad0-49ba-8b56-343b95f20238"],"befores":[],"afters":[{"name":"logout","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648397111541,"stop":1648397111605}],"links":[],"start":1648397107605,"stop":1648397111610}

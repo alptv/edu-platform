@@ -1,1 +1,0 @@
-{"uuid":"fd295007-a5e0-4579-9d8f-8981cd103ada","name":"User successful integration with login interface","children":["4307b9e6-0b13-459d-82f4-65c3a4d49e6d"],"befores":[],"afters":[{"name":"clear","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648382380043,"stop":1648382380153}],"links":[],"start":1648382378799,"stop":1648382380185}

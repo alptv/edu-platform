@@ -1,1 +1,0 @@
-{"uuid":"a1f706d9-e0dd-452e-9982-7dd4e282985d","name":"Inserting user in database","children":["60ba2891-288b-4fd8-9bd7-5fe1b58f751b"],"befores":[],"afters":[{"name":"clear","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648382077351,"stop":1648382077443}],"links":[],"start":1648382077322,"stop":1648382077445}

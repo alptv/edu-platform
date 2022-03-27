@@ -1,1 +1,0 @@
-{"uuid":"0c4d2675-091d-440e-b549-23d9f3c7a566","name":"Finding existing user by login","children":["bccf68a9-97d7-4298-a242-a303f1a36882"],"befores":[],"afters":[{"name":"clear","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648382637016,"stop":1648382637113}],"links":[],"start":1648382636990,"stop":1648382637115}

@@ -1,1 +1,0 @@
-{"uuid":"2029944c-0275-452f-ba84-b354f44099af","name":"User interaction with registration","children":["1e027425-2f4f-4b29-841f-b6f3e88a3b15"],"befores":[],"afters":[{"name":"logout","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648382056863,"stop":1648382057010}],"links":[],"start":1648382048278,"stop":1648382057110}

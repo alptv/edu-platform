@@ -1,1 +1,0 @@
-{"uuid":"8705f54c-bbd0-48f7-80be-8813890ec600","name":"Finding non existing user by login","children":["a6e8e887-0ec9-4f15-a4c8-548f5312470e"],"befores":[],"afters":[{"name":"clear","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648382637130,"stop":1648382637228}],"links":[],"start":1648382637116,"stop":1648382637229}

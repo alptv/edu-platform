@@ -1,1 +1,0 @@
-{"uuid":"4d011dcd-43e8-4135-b43d-4c0f1411d778","name":"user go to test fails at first try, then solve()","children":["b64f66ef-a235-4c2e-97b3-c2df3f46f901"],"befores":[],"afters":[{"name":"logout","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1648380395711,"stop":1648380395787}],"links":[],"start":1648380388992,"stop":1648380395915}
