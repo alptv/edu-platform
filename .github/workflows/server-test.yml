@@ -23,6 +23,15 @@ jobs:
           java-version: '11'
           distribution: adopt
           
+      - name: Build containers
+        run: docker-compose build
+        
+      - name: Start containers
+        run: docker-compose up -d 
+          
       - name: Build and test
         working-directory: ./server
         run: sudo ./gradlew build
+        
+      - name: Stop containers
+        run: docker-compose down
