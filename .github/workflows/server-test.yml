@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Download chrome browser
-        run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        run: sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
                 
       - name: Build chrome browser 
         run: sudo dpkg -i google-chrome-stable_current_amd64.deb
@@ -28,4 +28,4 @@ jobs:
           
       - name: Build and test
         working-directory: ./server
-        run: ./gradlew build
+        run: sudo ./gradlew build
