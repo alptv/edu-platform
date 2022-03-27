@@ -10,12 +10,15 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+    
+      - name: Add checkout action 
+        uses: actions/checkout@v2
       
-      - uses: browser-actions/setup-chrome@v0.0.0
-        with:
-          chrome-version: 88.0
-          
+      - name: Setup chrome browser
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb
+        
       - name: Setup Java JDK
         uses: actions/setup-java@v3.0.0
         with:
@@ -23,5 +26,5 @@ jobs:
           distribution: adopt
           
       - name: Build and test
-        run: ./gradlew build
         working-directory: ./server
+        run: ./gradlew build
