@@ -14,10 +14,11 @@ jobs:
       - name: Add checkout action 
         uses: actions/checkout@v2
       
-      - name: Setup chrome browser
-        run: |
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo dpkg -i google-chrome-stable_current_amd64.deb
+      - name: Download chrome browser
+        run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+                
+      - name: Build chrome browser 
+        run: sudo dpkg -i google-chrome-stable_current_amd64.deb
         
       - name: Setup Java JDK
         uses: actions/setup-java@v3.0.0
