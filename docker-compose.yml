@@ -19,7 +19,7 @@ services:
       DATABASE_URL: "jdbc:postgresql://0.0.0.0:5001/edu"
       DATABASE_USERNAME: "server"
       DATABASE_PASSWORD: "secret"
-      ALLOWED_ORIGINS: "http://localhost:7001"
+      ALLOWED_ORIGINS: "http://${HOST:-localhost}:7001"
     network_mode: host
     depends_on:
       - database
@@ -29,8 +29,7 @@ services:
     image: edu-platform_client:latest
     environment:
       PORT: 7001
-      SERVER_URL: "http://localhost:6001"
+      SERVER_URL: "http://${HOST:-localhost}:6001"
     network_mode: host
     depends_on:
       - server
-    

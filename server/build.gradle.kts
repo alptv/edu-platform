@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+import kotlin.collections.mutableMapOf
 
 plugins {
     id("org.springframework.boot") version "2.6.3"
@@ -54,12 +55,22 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
-    systemProperties = mapOf(
-        "selenide.headless" to System.getProperty("selenide.headless", "true"),
-        "selenide.browser" to System.getProperty("selenide.browser", "chrome"),
-        "selenide.baseUrl" to System.getProperty("selenide.baseUrl", "http://localhost:7001"),
-        "allure.results.directory" to "$projectDir/build/allure-results"
-    )
+    systemProperties = mutableMapOf<String, Any>().apply {
+        val host =  System.getProperty("selenide.host", "localhost")
+        val port =  System.getProperty("selenide.port", "7001")
+        val remote = System.getProperty("selenide.remote")
+
+        put("selenide.headless", System.getProperty("selenide.headless", "true"))
+        put("selenide.browser", System.getProperty("selenide.browser", "chrome"))
+        put("selenide.baseUrl", System.getProperty("selenide.baseUrl", "http://$host:$port"))
+        put("allure.results.directory", "$projectDir/build/allure-results")
+
+        if (remote != null) {
+            put("selenide.remote", remote)
+            put("driverManagerEnabled", "false")
+        }
+    }
+
     testLogging {
         exceptionFormat = FULL
         events("passed", "skipped", "failed")
