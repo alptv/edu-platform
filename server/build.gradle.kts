@@ -55,6 +55,7 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
     useJUnitPlatform()
     systemProperties = mapOf(
+        "selenide.headless" to System.getProperty("selenide.headless", "true"),
         "selenide.browser" to System.getProperty("selenide.browser", "chrome"),
         "selenide.baseUrl" to System.getProperty("selenide.baseUrl", "http://localhost:7001"),
         "allure.results.directory" to "$projectDir/build/allure-results"
