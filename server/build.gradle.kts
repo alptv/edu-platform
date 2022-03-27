@@ -1,4 +1,3 @@
-//import io.qameta.allure.gradle.AllureExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
@@ -22,6 +21,7 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
+    gradlePluginPortal()
 }
 
 dependencies {
@@ -31,11 +31,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.postgresql:postgresql:42.3.3")
-    //implementation("io.qameta.allure:allure-gradle:2.8.0")
 
-  //  testImplementation("io.qameta.allure:allure-java-commons:$allureVersion")
-
-    runtimeOnly("com.h2database:h2")
     testImplementation("org.assertj:assertj-core:3.22.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.h2database:h2:1.4.200")
@@ -43,12 +39,9 @@ dependencies {
     testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
     testImplementation("org.testcontainers:testcontainers:1.16.0")
     testImplementation("org.testcontainers:postgresql:1.16.0")
+    testImplementation("com.codeborne:selenide:5.25.1")
 
     testRuntimeOnly("io.qameta.allure:allure-junit5:$allureVersion")
-//    testCompile("io.qameta.allure:allure-java-commons:$allureVersion")
-//    testCompile("io.qameta.allure:allure-attachments:$allureVersion")
-//    testCompile("io.qameta.allure:allure-generator:$allureVersion")
-//    testCompile("io.qameta.allure:allure-httpclient:$allureVersion")
 }
 
 
@@ -61,6 +54,11 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    systemProperties = mapOf(
+        "selenide.browser" to System.getProperty("selenide.browser", "chrome"),
+        "selenide.baseUrl" to System.getProperty("selenide.baseUrl", "http://localhost:7001"),
+        "allure.results.directory" to "$projectDir/build/allure-results"
+    )
     testLogging {
         exceptionFormat = FULL
         events("passed", "skipped", "failed")
@@ -69,4 +67,23 @@ tasks.withType<Test> {
 
 tasks.withType<BootJar> {
     archiveFileName.set("server.jar")
+}
+
+
+tasks.register<Test>("unitTest") {
+    filter {
+        includeTestsMatching("edu.platform.unit.*")
+    }
+}
+
+tasks.register<Test>("integrationTest") {
+    filter {
+        includeTestsMatching("edu.platform.integration.*")
+    }
+}
+
+tasks.register<Test>("e2eTest") {
+    filter {
+        includeTestsMatching("edu.platform.e2e.*")
+    }
 }
