@@ -14,11 +14,8 @@ jobs:
       - name: Add checkout action 
         uses: actions/checkout@v2
       
-      - name: Download chrome browser
-        run: sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-                
-      - name: Build chrome browser 
-        run: sudo dpkg -i google-chrome-stable_current_amd64.deb
+      - name: Install Chromium
+        run: sudo apt-get install chromium-browser
         
       - name: Setup Java JDK
         uses: actions/setup-java@v3.0.0
