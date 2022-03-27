@@ -1,3 +1,8 @@
+## Allure
+* Запустить тесты
+* ``./gradlew allureReport``
+* ``./gradlew allureServe``
+
 ## Unit тесты 
 ``./gradlew unitTest``
 
@@ -15,4 +20,4 @@
 и узнать его url. Далее предполагается что он равен *http://localhost:4444*
 * ``./gradlew e2eTest
   -Dselenide.host=172.17.0.1 
-  -Dselenide.remote=http://localhost:4444/wd/hub``
+  -Dselenide.remote=http://localhost:4444/wd/hub`` 
